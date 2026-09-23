@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FLIPSCAN - Achat & Revente</title>
+  <title>Shop'store Onesix</title>
 
-  <meta name="description" content="FLIPSCAN - Gestion d'achat et de revente">
-  <meta name="theme-color" content="#0b0f19">
+  <meta name="description" content="Shop'store Onesix - Achat & Revente">
+  <meta name="theme-color" content="#070b13">
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -133,20 +133,40 @@
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, var(--primary), var(--primary2));
-      font-size: 28px;
+      font-size: 25px;
       font-weight: 900;
       box-shadow: 0 15px 40px rgba(91,140,255,.25);
+      letter-spacing: -1px;
     }
 
     .logoArea h1 {
       margin-top: 15px;
-      font-size: 29px;
+      font-size: 28px;
+      line-height: 1.15;
     }
 
     .logoArea p {
       color: var(--muted);
       margin-top: 7px;
       font-size: 14px;
+    }
+
+    .creatorLine {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .creatorLink {
+      color: #8eaeff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .creatorLink:hover {
+      color: white;
+      text-decoration: underline;
     }
 
     .tabs {
@@ -221,6 +241,12 @@
       filter: brightness(1.08);
     }
 
+    .mainBtn:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     .authMessage {
       margin-top: 15px;
       padding: 11px 13px;
@@ -286,6 +312,8 @@
       align-items: center;
       justify-content: center;
       font-weight: 900;
+      font-size: 12px;
+      text-align: center;
     }
 
     .brand strong {
@@ -434,7 +462,7 @@
     }
 
     /* =========================
-       PRODUCTS
+       PRODUITS
     ========================= */
 
     .productsGrid {
@@ -461,8 +489,7 @@
       width: 100%;
       height: 220px;
       object-fit: cover;
-      background:
-        linear-gradient(135deg, #111827, #1b2637);
+      background: linear-gradient(135deg, #111827, #1b2637);
       display: block;
     }
 
@@ -835,6 +862,10 @@
       .brand small {
         display: none;
       }
+
+      .logoArea h1 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -847,8 +878,9 @@
 
   <div id="loadingScreen">
     <div class="loader"></div>
-    <div class="loadingText">Connexion à FLIPSCAN...</div>
+    <div class="loadingText">Connexion à Shop'store Onesix...</div>
   </div>
+
 
   <!-- =========================
        AUTHENTIFICATION
@@ -859,67 +891,128 @@
     <div class="authBox">
 
       <div class="logoArea">
-        <div class="logo">FS</div>
-        <h1>FLIPSCAN</h1>
-        <p>Achat • Revente • Bénéfices</p>
+
+        <div class="logo">
+          S'O
+        </div>
+
+        <h1>Shop'store Onesix</h1>
+
+        <p>
+          Achat • Revente • Bénéfices
+        </p>
+
+        <div class="creatorLine">
+          Application conçue par
+          <a
+            class="creatorLink"
+            href="https://wa.me/33620036223"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Gaëtan.M
+          </a>
+        </div>
+
       </div>
 
+
       <div class="tabs">
-        <button id="loginTab" class="tab active" onclick="showAuthMode('login')">
+
+        <button
+          id="loginTab"
+          class="tab active"
+          onclick="showAuthMode('login')"
+        >
           Connexion
         </button>
 
-        <button id="registerTab" class="tab" onclick="showAuthMode('register')">
+        <button
+          id="registerTab"
+          class="tab"
+          onclick="showAuthMode('register')"
+        >
           Inscription
         </button>
+
       </div>
+
 
       <!-- CONNEXION -->
 
       <form id="loginForm">
 
         <div class="field">
-          <label>Adresse e-mail</label>
+
+          <label>
+            Adresse e-mail
+          </label>
+
           <input
             id="loginEmail"
             type="email"
             placeholder="votre@email.com"
             required
           >
+
         </div>
 
+
         <div class="field">
-          <label>Mot de passe</label>
+
+          <label>
+            Mot de passe
+          </label>
+
           <input
             id="loginPassword"
             type="password"
             placeholder="••••••••"
             required
           >
+
         </div>
 
-        <button class="mainBtn" type="submit">
+
+        <button
+          class="mainBtn"
+          type="submit"
+        >
           Se connecter
         </button>
 
       </form>
 
+
       <!-- INSCRIPTION -->
 
-      <form id="registerForm" class="hidden">
+      <form
+        id="registerForm"
+        class="hidden"
+      >
 
         <div class="field">
-          <label>Adresse e-mail</label>
+
+          <label>
+            Adresse e-mail
+          </label>
+
           <input
             id="registerEmail"
             type="email"
             placeholder="votre@email.com"
             required
           >
+
         </div>
 
+
         <div class="field">
-          <label>Mot de passe</label>
+
+          <label>
+            Mot de passe
+          </label>
+
           <input
             id="registerPassword"
             type="password"
@@ -927,15 +1020,24 @@
             minlength="6"
             required
           >
+
         </div>
 
-        <button class="mainBtn" type="submit">
+
+        <button
+          class="mainBtn"
+          type="submit"
+        >
           Créer mon compte
         </button>
 
       </form>
 
-      <div id="authMessage" class="authMessage"></div>
+
+      <div
+        id="authMessage"
+        class="authMessage"
+      ></div>
 
     </div>
 
@@ -946,7 +1048,10 @@
        APPLICATION
   ========================= -->
 
-  <main id="app" class="hidden">
+  <main
+    id="app"
+    class="hidden"
+  >
 
     <header class="topbar">
 
@@ -955,25 +1060,42 @@
         <div class="brand">
 
           <div class="brandIcon">
-            FS
+            S'O
           </div>
 
           <div>
-            <strong>FLIPSCAN</strong>
-            <small>Gestion achat & revente</small>
+
+            <strong>
+              Shop'store Onesix
+            </strong>
+
+            <small>
+              Gestion achat & revente
+            </small>
+
           </div>
 
         </div>
 
+
         <div class="userArea">
 
-          <span id="userEmail" class="userEmail"></span>
+          <span
+            id="userEmail"
+            class="userEmail"
+          ></span>
 
-          <span id="roleBadge" class="badge">
+          <span
+            id="roleBadge"
+            class="badge"
+          >
             UTILISATEUR
           </span>
 
-          <button class="logoutBtn" onclick="logout()">
+          <button
+            class="logoutBtn"
+            onclick="logout()"
+          >
             Déconnexion
           </button>
 
@@ -989,11 +1111,17 @@
       <section class="hero">
 
         <div>
-          <h2>Catalogue produits</h2>
+
+          <h2>
+            Catalogue produits
+          </h2>
+
           <p>
             Consulte les articles disponibles et leur potentiel de bénéfice.
           </p>
+
         </div>
+
 
         <button
           id="addProductBtn"
@@ -1008,46 +1136,72 @@
 
       <!-- STATISTIQUES ADMIN -->
 
-      <section id="statsSection" class="stats hidden">
+      <section
+        id="statsSection"
+        class="stats hidden"
+      >
 
         <div class="stat">
+
           <div class="statTitle">
             Références
           </div>
 
-          <div id="statReferences" class="statValue">
+          <div
+            id="statReferences"
+            class="statValue"
+          >
             0
           </div>
+
         </div>
 
+
         <div class="stat">
+
           <div class="statTitle">
             Articles disponibles
           </div>
 
-          <div id="statQuantity" class="statValue">
+          <div
+            id="statQuantity"
+            class="statValue"
+          >
             0
           </div>
+
         </div>
 
+
         <div class="stat">
+
           <div class="statTitle">
             Total investi
           </div>
 
-          <div id="statInvested" class="statValue statOrange">
+          <div
+            id="statInvested"
+            class="statValue statOrange"
+          >
             0,00 €
           </div>
+
         </div>
 
+
         <div class="stat">
+
           <div class="statTitle">
             Bénéfice potentiel
           </div>
 
-          <div id="statProfit" class="statValue statGreen">
+          <div
+            id="statProfit"
+            class="statValue statGreen"
+          >
             0,00 €
           </div>
+
         </div>
 
       </section>
@@ -1058,15 +1212,21 @@
       <div class="toolbar">
 
         <div class="searchBox">
+
           <input
             id="searchInput"
             type="text"
             placeholder="🔎 Rechercher un article..."
             oninput="renderProducts()"
           >
+
         </div>
 
-        <button class="refreshBtn" onclick="loadProducts()">
+
+        <button
+          class="refreshBtn"
+          onclick="loadProducts()"
+        >
           ↻ Actualiser
         </button>
 
@@ -1075,9 +1235,10 @@
 
       <!-- PRODUITS -->
 
-      <section id="productsGrid" class="productsGrid">
-
-      </section>
+      <section
+        id="productsGrid"
+        class="productsGrid"
+      ></section>
 
     </div>
 
@@ -1088,7 +1249,10 @@
        MODAL PRODUIT
   ========================= -->
 
-  <div id="productModal" class="modalOverlay hidden">
+  <div
+    id="productModal"
+    class="modalOverlay hidden"
+  >
 
     <div class="modal">
 
@@ -1098,17 +1262,25 @@
           Ajouter un article
         </h3>
 
-        <button class="closeBtn" onclick="closeProductModal()">
+        <button
+          class="closeBtn"
+          onclick="closeProductModal()"
+        >
           ×
         </button>
 
       </div>
 
+
       <div class="modalBody">
 
         <form id="productForm">
 
-          <input type="hidden" id="productId">
+          <input
+            type="hidden"
+            id="productId"
+          >
+
 
           <div class="formGrid">
 
@@ -1211,9 +1383,14 @@
             </div>
 
 
-            <div id="previewContainer" class="full hidden">
+            <div
+              id="previewContainer"
+              class="full hidden"
+            >
 
-              <label style="font-size:13px;color:#cbd5e1;">
+              <label
+                style="font-size:13px;color:#cbd5e1;"
+              >
                 Aperçu
               </label>
 
@@ -1264,8 +1441,8 @@
 
 <script>
 /* ============================================================
-   FLIPSCAN
-   SUPABASE CONFIGURATION
+   SHOP'STORE ONESIX
+   CONFIGURATION SUPABASE
 ============================================================ */
 
 const SUPABASE_URL =
@@ -1332,50 +1509,68 @@ const productsGrid =
    INITIALISATION
 ============================================================ */
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener(
+  "DOMContentLoaded",
+  async () => {
 
-  setupImagePreview();
+    setupImagePreview();
 
-  const {
-    data: {
-      session
+    const {
+      data: {
+        session
+      }
+    } =
+      await supabaseClient.auth.getSession();
+
+    if (
+      session &&
+      session.user
+    ) {
+
+      await handleLoggedUser(
+        session.user
+      );
+
+    } else {
+
+      showAuth();
+
     }
-  } = await supabaseClient.auth.getSession();
 
-  if (session && session.user) {
 
-    await handleLoggedUser(session.user);
+    supabaseClient.auth.onAuthStateChange(
+      async (
+        event,
+        session
+      ) => {
 
-  } else {
+        if (
+          session &&
+          session.user
+        ) {
 
-    showAuth();
+          await handleLoggedUser(
+            session.user
+          );
 
-  }
+        } else {
 
-  supabaseClient.auth.onAuthStateChange(
-    async (event, session) => {
+          currentUser = null;
+          isAdmin = false;
 
-      if (session && session.user) {
+          showAuth();
 
-        await handleLoggedUser(session.user);
-
-      } else {
-
-        currentUser = null;
-        isAdmin = false;
-
-        showAuth();
+        }
 
       }
+    );
 
-    }
-  );
-
-});
+  }
+);
 
 
 /* ============================================================
-   AUTH
+   UTILISATEUR CONNECTÉ
 ============================================================ */
 
 async function handleLoggedUser(user) {
@@ -1383,40 +1578,81 @@ async function handleLoggedUser(user) {
   currentUser = user;
 
   isAdmin =
-    String(user.email || "").toLowerCase() ===
+    String(
+      user.email || ""
+    ).toLowerCase() ===
     OWNER_EMAIL.toLowerCase();
 
-  document.getElementById("userEmail").textContent =
-    user.email || "";
 
-  document.getElementById("roleBadge").textContent =
-    isAdmin ? "ADMINISTRATEUR" : "UTILISATEUR";
+  document
+    .getElementById("userEmail")
+    .textContent =
+      user.email || "";
+
+
+  document
+    .getElementById("roleBadge")
+    .textContent =
+      isAdmin
+        ? "ADMINISTRATEUR"
+        : "UTILISATEUR";
+
 
   document
     .getElementById("addProductBtn")
-    .classList.toggle("hidden", !isAdmin);
+    .classList
+    .toggle(
+      "hidden",
+      !isAdmin
+    );
+
 
   document
     .getElementById("statsSection")
-    .classList.toggle("hidden", !isAdmin);
+    .classList
+    .toggle(
+      "hidden",
+      !isAdmin
+    );
 
-  authScreen.classList.add("hidden");
-  app.classList.remove("hidden");
-  loadingScreen.classList.add("hidden");
+
+  authScreen
+    .classList
+    .add("hidden");
+
+
+  app
+    .classList
+    .remove("hidden");
+
+
+  loadingScreen
+    .classList
+    .add("hidden");
+
 
   await loadProducts();
+
 }
 
 
 /* ============================================================
-   AFFICHAGE AUTH
+   AUTH
 ============================================================ */
 
 function showAuth() {
 
-  app.classList.add("hidden");
-  loadingScreen.classList.add("hidden");
-  authScreen.classList.remove("hidden");
+  app
+    .classList
+    .add("hidden");
+
+  loadingScreen
+    .classList
+    .add("hidden");
+
+  authScreen
+    .classList
+    .remove("hidden");
 
 }
 
@@ -1424,28 +1660,56 @@ function showAuth() {
 function showAuthMode(mode) {
 
   const loginTab =
-    document.getElementById("loginTab");
+    document.getElementById(
+      "loginTab"
+    );
 
   const registerTab =
-    document.getElementById("registerTab");
+    document.getElementById(
+      "registerTab"
+    );
 
-  if (mode === "login") {
 
-    loginForm.classList.remove("hidden");
-    registerForm.classList.add("hidden");
+  if (
+    mode === "login"
+  ) {
 
-    loginTab.classList.add("active");
-    registerTab.classList.remove("active");
+    loginForm
+      .classList
+      .remove("hidden");
+
+    registerForm
+      .classList
+      .add("hidden");
+
+    loginTab
+      .classList
+      .add("active");
+
+    registerTab
+      .classList
+      .remove("active");
 
   } else {
 
-    loginForm.classList.add("hidden");
-    registerForm.classList.remove("hidden");
+    loginForm
+      .classList
+      .add("hidden");
 
-    loginTab.classList.remove("active");
-    registerTab.classList.add("active");
+    registerForm
+      .classList
+      .remove("hidden");
+
+    loginTab
+      .classList
+      .remove("active");
+
+    registerTab
+      .classList
+      .add("active");
 
   }
+
 
   clearAuthMessage();
 
@@ -1453,12 +1717,17 @@ function showAuthMode(mode) {
 
 
 /* ============================================================
-   MESSAGE AUTH
+   MESSAGES AUTH
 ============================================================ */
 
-function showAuthMessage(message, type = "error") {
+function showAuthMessage(
+  message,
+  type = "error"
+) {
 
-  authMessage.textContent = message;
+  authMessage.textContent =
+    message;
+
   authMessage.className =
     "authMessage " + type;
 
@@ -1467,8 +1736,11 @@ function showAuthMessage(message, type = "error") {
 
 function clearAuthMessage() {
 
-  authMessage.textContent = "";
-  authMessage.className = "authMessage";
+  authMessage.textContent =
+    "";
+
+  authMessage.className =
+    "authMessage";
 
 }
 
@@ -1477,111 +1749,170 @@ function clearAuthMessage() {
    CONNEXION
 ============================================================ */
 
-loginForm.addEventListener("submit", async (event) => {
+loginForm.addEventListener(
+  "submit",
+  async event => {
 
-  event.preventDefault();
+    event.preventDefault();
 
-  clearAuthMessage();
+    clearAuthMessage();
 
-  const email =
-    document.getElementById("loginEmail").value.trim();
 
-  const password =
-    document.getElementById("loginPassword").value;
+    const email =
+      document
+        .getElementById(
+          "loginEmail"
+        )
+        .value
+        .trim();
 
-  const button =
-    loginForm.querySelector("button");
 
-  button.disabled = true;
-  button.textContent = "Connexion...";
+    const password =
+      document
+        .getElementById(
+          "loginPassword"
+        )
+        .value;
 
-  const {
-    error
-  } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password
-  });
 
-  button.disabled = false;
-  button.textContent = "Se connecter";
+    const button =
+      loginForm
+        .querySelector(
+          "button"
+        );
 
-  if (error) {
 
-    showAuthMessage(
-      getAuthError(error),
-      "error"
-    );
+    button.disabled = true;
+    button.textContent =
+      "Connexion...";
 
-    return;
+
+    const {
+      error
+    } =
+      await supabaseClient.auth
+        .signInWithPassword({
+          email,
+          password
+        });
+
+
+    button.disabled = false;
+    button.textContent =
+      "Se connecter";
+
+
+    if (error) {
+
+      showAuthMessage(
+        getAuthError(error),
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    loginForm.reset();
+
   }
-
-  loginForm.reset();
-
-});
+);
 
 
 /* ============================================================
    INSCRIPTION
 ============================================================ */
 
-registerForm.addEventListener("submit", async (event) => {
+registerForm.addEventListener(
+  "submit",
+  async event => {
 
-  event.preventDefault();
+    event.preventDefault();
 
-  clearAuthMessage();
+    clearAuthMessage();
 
-  const email =
-    document.getElementById("registerEmail").value.trim();
 
-  const password =
-    document.getElementById("registerPassword").value;
+    const email =
+      document
+        .getElementById(
+          "registerEmail"
+        )
+        .value
+        .trim();
 
-  const button =
-    registerForm.querySelector("button");
 
-  button.disabled = true;
-  button.textContent = "Création...";
+    const password =
+      document
+        .getElementById(
+          "registerPassword"
+        )
+        .value;
 
-  const {
-    data,
-    error
-  } = await supabaseClient.auth.signUp({
-    email,
-    password
-  });
 
-  button.disabled = false;
-  button.textContent = "Créer mon compte";
+    const button =
+      registerForm
+        .querySelector(
+          "button"
+        );
 
-  if (error) {
 
-    showAuthMessage(
-      getAuthError(error),
-      "error"
-    );
+    button.disabled = true;
 
-    return;
+    button.textContent =
+      "Création...";
+
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth
+        .signUp({
+          email,
+          password
+        });
+
+
+    button.disabled = false;
+
+    button.textContent =
+      "Créer mon compte";
+
+
+    if (error) {
+
+      showAuthMessage(
+        getAuthError(error),
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    registerForm.reset();
+
+
+    if (data.session) {
+
+      showAuthMessage(
+        "Compte créé avec succès.",
+        "success"
+      );
+
+    } else {
+
+      showAuthMessage(
+        "Compte créé. Vérifie ton adresse e-mail si la confirmation e-mail est activée dans Supabase.",
+        "success"
+      );
+
+    }
+
   }
-
-  registerForm.reset();
-
-  if (data.session) {
-
-    showAuthMessage(
-      "Compte créé avec succès.",
-      "success"
-    );
-
-  } else {
-
-    showAuthMessage(
-      "Compte créé. Vérifie ton adresse e-mail si la confirmation e-mail est activée dans Supabase.",
-      "success"
-    );
-
-  }
-
-});
+);
 
 
 /* ============================================================
@@ -1591,35 +1922,71 @@ registerForm.addEventListener("submit", async (event) => {
 function getAuthError(error) {
 
   const message =
-    String(error?.message || "").toLowerCase();
+    String(
+      error?.message || ""
+    ).toLowerCase();
 
-  if (message.includes("invalid login credentials")) {
+
+  if (
+    message.includes(
+      "invalid login credentials"
+    )
+  ) {
+
     return "E-mail ou mot de passe incorrect.";
+
   }
 
-  if (message.includes("email not confirmed")) {
+
+  if (
+    message.includes(
+      "email not confirmed"
+    )
+  ) {
+
     return "Ton adresse e-mail n'est pas encore confirmée.";
+
   }
 
-  if (message.includes("user already registered")) {
+
+  if (
+    message.includes(
+      "user already registered"
+    )
+  ) {
+
     return "Un compte existe déjà avec cette adresse e-mail.";
+
   }
 
-  if (message.includes("password")) {
+
+  if (
+    message.includes(
+      "password"
+    )
+  ) {
+
     return "Le mot de passe doit contenir au minimum 6 caractères.";
+
   }
 
-  return error?.message || "Une erreur est survenue.";
+
+  return (
+    error?.message ||
+    "Une erreur est survenue."
+  );
+
 }
 
 
 /* ============================================================
-   DECONNEXION
+   DÉCONNEXION
 ============================================================ */
 
 async function logout() {
 
-  await supabaseClient.auth.signOut();
+  await supabaseClient.auth
+    .signOut();
 
   products = [];
   currentUser = null;
@@ -1638,6 +2005,7 @@ async function loadProducts() {
     return;
   }
 
+
   productsGrid.innerHTML = `
     <div class="emptyState">
       <div class="icon">⏳</div>
@@ -1645,36 +2013,51 @@ async function loadProducts() {
     </div>
   `;
 
+
   const {
     data,
     error
-  } = await supabaseClient
-    .from("products")
-    .select("*")
-    .order("created_at", {
-      ascending: false
-    });
+  } =
+    await supabaseClient
+      .from("products")
+      .select("*")
+      .order(
+        "created_at",
+        {
+          ascending: false
+        }
+      );
+
 
   if (error) {
 
     console.error(error);
 
+
     productsGrid.innerHTML = `
       <div class="emptyState">
         <div class="icon">⚠️</div>
-        <div>Impossible de charger les produits.</div>
+        <div>
+          Impossible de charger les produits.
+        </div>
       </div>
     `;
+
 
     toast(
       "Erreur lors du chargement des produits.",
       "error"
     );
 
+
     return;
+
   }
 
-  products = data || [];
+
+  products =
+    data || [];
+
 
   renderProducts();
   updateStats();
@@ -1690,26 +2073,38 @@ function renderProducts() {
 
   const search =
     document
-      .getElementById("searchInput")
+      .getElementById(
+        "searchInput"
+      )
       .value
       .trim()
       .toLowerCase();
 
+
   const filtered =
-    products.filter(product => {
+    products.filter(
+      product => {
 
-      const name =
-        String(product.name || "").toLowerCase();
+        const name =
+          String(
+            product.name || ""
+          ).toLowerCase();
 
-      const description =
-        String(product.description || "").toLowerCase();
 
-      return (
-        name.includes(search) ||
-        description.includes(search)
-      );
+        const description =
+          String(
+            product.description || ""
+          ).toLowerCase();
 
-    });
+
+        return (
+          name.includes(search) ||
+          description.includes(search)
+        );
+
+      }
+    );
+
 
   if (!filtered.length) {
 
@@ -1726,162 +2121,215 @@ function renderProducts() {
       </div>
     `;
 
+
     return;
+
   }
 
+
   productsGrid.innerHTML =
-    filtered.map(product => {
+    filtered
+      .map(
+        product => {
 
-      const purchase =
-        Number(product.purchase_price || 0);
+          const purchase =
+            Number(
+              product.purchase_price || 0
+            );
 
-      const sale =
-        Number(product.sale_price || 0);
 
-      const quantity =
-        Number(product.quantity || 0);
+          const sale =
+            Number(
+              product.sale_price || 0
+            );
 
-      const profit =
-        sale - purchase;
 
-      let stockClass = "ok";
-      let stockText = `${quantity} disponible(s)`;
+          const quantity =
+            Number(
+              product.quantity || 0
+            );
 
-      if (quantity <= 0) {
 
-        stockClass = "empty";
-        stockText = "Rupture de stock";
+          const profit =
+            sale - purchase;
 
-      } else if (quantity <= 2) {
 
-        stockClass = "low";
-        stockText = `${quantity} disponible(s)`;
+          let stockClass =
+            "ok";
 
-      }
 
-      const imageHTML =
-        product.image_url
-          ? `
-            <img
-              class="productImage"
-              src="${escapeAttribute(product.image_url)}"
-              alt="${escapeAttribute(product.name || "Produit")}"
-              loading="lazy"
-            >
-          `
-          : `
-            <div class="noImage">
-              📦
-            </div>
+          let stockText =
+            `${quantity} disponible(s)`;
+
+
+          if (
+            quantity <= 0
+          ) {
+
+            stockClass =
+              "empty";
+
+            stockText =
+              "Rupture de stock";
+
+          } else if (
+            quantity <= 2
+          ) {
+
+            stockClass =
+              "low";
+
+            stockText =
+              `${quantity} disponible(s)`;
+
+          }
+
+
+          const imageHTML =
+            product.image_url
+              ? `
+                <img
+                  class="productImage"
+                  src="${escapeAttribute(product.image_url)}"
+                  alt="${escapeAttribute(product.name || "Produit")}"
+                  loading="lazy"
+                >
+              `
+              : `
+                <div class="noImage">
+                  📦
+                </div>
+              `;
+
+
+          const adminHTML =
+            isAdmin
+              ? `
+                <div class="adminActions">
+
+                  <button
+                    class="editBtn"
+                    onclick="editProduct('${product.id}')"
+                  >
+                    ✏️ Modifier
+                  </button>
+
+                  <button
+                    class="deleteBtn"
+                    onclick="deleteProduct('${product.id}')"
+                  >
+                    🗑️ Supprimer
+                  </button>
+
+                </div>
+              `
+              : "";
+
+
+          return `
+            <article class="productCard">
+
+              ${imageHTML}
+
+              <div class="productBody">
+
+                <div class="productName">
+                  ${escapeHTML(
+                    product.name ||
+                    "Sans nom"
+                  )}
+                </div>
+
+                <div class="productDescription">
+                  ${
+                    escapeHTML(
+                      product.description ||
+                      "Aucune description."
+                    )
+                  }
+                </div>
+
+                <div class="priceRow">
+
+                  <div class="priceBox">
+
+                    <div class="priceLabel">
+                      Achat
+                    </div>
+
+                    <div class="price">
+                      ${formatEuro(
+                        purchase
+                      )}
+                    </div>
+
+                  </div>
+
+                  <div class="priceBox">
+
+                    <div class="priceLabel">
+                      Revente
+                    </div>
+
+                    <div class="price">
+                      ${formatEuro(
+                        sale
+                      )}
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="profitBox">
+
+                  <span class="profitLabel">
+                    Bénéfice / unité
+                  </span>
+
+                  <span class="profitValue">
+                    ${formatEuro(
+                      profit
+                    )}
+                  </span>
+
+                </div>
+
+
+                <div class="stockRow">
+
+                  <span
+                    class="stock ${stockClass}"
+                  >
+                    📦 ${stockText}
+                  </span>
+
+                  <span
+                    style="font-size:11px;color:#77849a;"
+                  >
+                    ${
+                      quantity > 0
+                        ? `Potentiel : ${formatEuro(
+                            profit * quantity
+                          )}`
+                        : ""
+                    }
+                  </span>
+
+                </div>
+
+
+                ${adminHTML}
+
+              </div>
+
+            </article>
           `;
 
-      const adminHTML =
-        isAdmin
-          ? `
-            <div class="adminActions">
-
-              <button
-                class="editBtn"
-                onclick="editProduct('${product.id}')"
-              >
-                ✏️ Modifier
-              </button>
-
-              <button
-                class="deleteBtn"
-                onclick="deleteProduct('${product.id}')"
-              >
-                🗑️ Supprimer
-              </button>
-
-            </div>
-          `
-          : "";
-
-      return `
-        <article class="productCard">
-
-          ${imageHTML}
-
-          <div class="productBody">
-
-            <div class="productName">
-              ${escapeHTML(product.name || "Sans nom")}
-            </div>
-
-            <div class="productDescription">
-              ${
-                escapeHTML(
-                  product.description ||
-                  "Aucune description."
-                )
-              }
-            </div>
-
-            <div class="priceRow">
-
-              <div class="priceBox">
-
-                <div class="priceLabel">
-                  Achat
-                </div>
-
-                <div class="price">
-                  ${formatEuro(purchase)}
-                </div>
-
-              </div>
-
-              <div class="priceBox">
-
-                <div class="priceLabel">
-                  Revente
-                </div>
-
-                <div class="price">
-                  ${formatEuro(sale)}
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="profitBox">
-
-              <span class="profitLabel">
-                Bénéfice / unité
-              </span>
-
-              <span class="profitValue">
-                ${formatEuro(profit)}
-              </span>
-
-            </div>
-
-            <div class="stockRow">
-
-              <span class="stock ${stockClass}">
-                📦 ${stockText}
-              </span>
-
-              <span style="font-size:11px;color:#77849a;">
-                ${
-                  quantity > 0
-                    ? `Potentiel : ${formatEuro(profit * quantity)}`
-                    : ""
-                }
-              </span>
-
-            </div>
-
-            ${adminHTML}
-
-          </div>
-
-        </article>
-      `;
-
-    }).join("");
+        }
+      )
+      .join("");
 
 }
 
@@ -1896,61 +2344,113 @@ function updateStats() {
     return;
   }
 
+
   const references =
     products.length;
 
+
   const quantity =
     products.reduce(
-      (total, product) =>
-        total + Number(product.quantity || 0),
+      (
+        total,
+        product
+      ) =>
+        total +
+        Number(
+          product.quantity || 0
+        ),
       0
     );
+
 
   const invested =
     products.reduce(
-      (total, product) =>
+      (
+        total,
+        product
+      ) =>
         total +
         (
-          Number(product.purchase_price || 0) *
-          Number(product.quantity || 0)
+          Number(
+            product.purchase_price || 0
+          ) *
+          Number(
+            product.quantity || 0
+          )
         ),
       0
     );
+
 
   const potentialProfit =
     products.reduce(
-      (total, product) =>
+      (
+        total,
+        product
+      ) =>
         total +
         (
           (
-            Number(product.sale_price || 0) -
-            Number(product.purchase_price || 0)
+            Number(
+              product.sale_price || 0
+            ) -
+            Number(
+              product.purchase_price || 0
+            )
           ) *
-          Number(product.quantity || 0)
+          Number(
+            product.quantity || 0
+          )
         ),
       0
     );
 
-  document.getElementById("statReferences").textContent =
-    references;
 
-  document.getElementById("statQuantity").textContent =
-    quantity;
+  document
+    .getElementById(
+      "statReferences"
+    )
+    .textContent =
+      references;
 
-  document.getElementById("statInvested").textContent =
-    formatEuro(invested);
 
-  document.getElementById("statProfit").textContent =
-    formatEuro(potentialProfit);
+  document
+    .getElementById(
+      "statQuantity"
+    )
+    .textContent =
+      quantity;
+
+
+  document
+    .getElementById(
+      "statInvested"
+    )
+    .textContent =
+      formatEuro(
+        invested
+      );
+
+
+  document
+    .getElementById(
+      "statProfit"
+    )
+    .textContent =
+      formatEuro(
+        potentialProfit
+      );
 
 }
 
 
 /* ============================================================
-   MODAL AJOUT / MODIFICATION
+   MODAL
 ============================================================ */
 
-function openProductModal(product = null) {
+function openProductModal(
+  product = null
+) {
 
   if (!isAdmin) {
 
@@ -1960,58 +2460,124 @@ function openProductModal(product = null) {
     );
 
     return;
+
   }
 
+
   editingProductId =
-    product ? product.id : null;
-
-  document.getElementById("modalTitle").textContent =
     product
-      ? "Modifier l'article"
-      : "Ajouter un article";
+      ? product.id
+      : null;
 
-  document.getElementById("productId").value =
-    product?.id || "";
 
-  document.getElementById("productName").value =
-    product?.name || "";
+  document
+    .getElementById(
+      "modalTitle"
+    )
+    .textContent =
+      product
+        ? "Modifier l'article"
+        : "Ajouter un article";
 
-  document.getElementById("productDescription").value =
-    product?.description || "";
 
-  document.getElementById("purchasePrice").value =
-    product?.purchase_price ?? "";
+  document
+    .getElementById(
+      "productId"
+    )
+    .value =
+      product?.id || "";
 
-  document.getElementById("salePrice").value =
-    product?.sale_price ?? "";
 
-  document.getElementById("productQuantity").value =
-    product?.quantity ?? 1;
+  document
+    .getElementById(
+      "productName"
+    )
+    .value =
+      product?.name || "";
 
-  document.getElementById("productImage").value =
-    "";
+
+  document
+    .getElementById(
+      "productDescription"
+    )
+    .value =
+      product?.description || "";
+
+
+  document
+    .getElementById(
+      "purchasePrice"
+    )
+    .value =
+      product?.purchase_price ?? "";
+
+
+  document
+    .getElementById(
+      "salePrice"
+    )
+    .value =
+      product?.sale_price ?? "";
+
+
+  document
+    .getElementById(
+      "productQuantity"
+    )
+    .value =
+      product?.quantity ?? 1;
+
+
+  document
+    .getElementById(
+      "productImage"
+    )
+    .value =
+      "";
+
 
   const previewContainer =
-    document.getElementById("previewContainer");
+    document.getElementById(
+      "previewContainer"
+    );
+
 
   const preview =
-    document.getElementById("imagePreview");
+    document.getElementById(
+      "imagePreview"
+    );
 
-  if (product?.image_url) {
 
-    preview.src = product.image_url;
-    previewContainer.classList.remove("hidden");
+  if (
+    product?.image_url
+  ) {
+
+    preview.src =
+      product.image_url;
+
+    previewContainer
+      .classList
+      .remove("hidden");
 
   } else {
 
-    preview.removeAttribute("src");
-    previewContainer.classList.add("hidden");
+    preview.removeAttribute(
+      "src"
+    );
+
+    previewContainer
+      .classList
+      .add("hidden");
 
   }
 
+
   document
-    .getElementById("productModal")
-    .classList.remove("hidden");
+    .getElementById(
+      "productModal"
+    )
+    .classList
+    .remove("hidden");
 
 }
 
@@ -2019,18 +2585,30 @@ function openProductModal(product = null) {
 function closeProductModal() {
 
   document
-    .getElementById("productModal")
-    .classList.add("hidden");
+    .getElementById(
+      "productModal"
+    )
+    .classList
+    .add("hidden");
+
 
   document
-    .getElementById("productForm")
+    .getElementById(
+      "productForm"
+    )
     .reset();
 
-  editingProductId = null;
+
+  editingProductId =
+    null;
+
 
   document
-    .getElementById("previewContainer")
-    .classList.add("hidden");
+    .getElementById(
+      "previewContainer"
+    )
+    .classList
+    .add("hidden");
 
 }
 
@@ -2045,16 +2623,23 @@ function editProduct(id) {
     return;
   }
 
+
   const product =
     products.find(
-      item => String(item.id) === String(id)
+      item =>
+        String(item.id) ===
+        String(id)
     );
+
 
   if (!product) {
     return;
   }
 
-  openProductModal(product);
+
+  openProductModal(
+    product
+  );
 
 }
 
@@ -2064,270 +2649,415 @@ function editProduct(id) {
 ============================================================ */
 
 document
-  .getElementById("productForm")
-  .addEventListener("submit", async (event) => {
+  .getElementById(
+    "productForm"
+  )
+  .addEventListener(
+    "submit",
+    async event => {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    if (!isAdmin) {
 
-      toast(
-        "Action réservée à l'administrateur.",
-        "error"
-      );
+      if (!isAdmin) {
 
-      return;
-    }
-
-    const saveButton =
-      document.getElementById("saveProductBtn");
-
-    saveButton.disabled = true;
-    saveButton.textContent = "Enregistrement...";
-
-    try {
-
-      const name =
-        document
-          .getElementById("productName")
-          .value
-          .trim();
-
-      const description =
-        document
-          .getElementById("productDescription")
-          .value
-          .trim();
-
-      const purchasePrice =
-        Number(
-          document.getElementById("purchasePrice").value
+        toast(
+          "Action réservée à l'administrateur.",
+          "error"
         );
 
-      const salePrice =
-        Number(
-          document.getElementById("salePrice").value
+        return;
+
+      }
+
+
+      const saveButton =
+        document.getElementById(
+          "saveProductBtn"
         );
 
-      const quantity =
-        Number(
-          document.getElementById("productQuantity").value
-        );
 
-      const imageFile =
-        document.getElementById("productImage").files[0];
+      saveButton.disabled =
+        true;
 
-      if (!name) {
-        throw new Error("Le nom de l'article est obligatoire.");
-      }
-
-      if (
-        !Number.isFinite(purchasePrice) ||
-        purchasePrice < 0
-      ) {
-        throw new Error("Prix d'achat invalide.");
-      }
-
-      if (
-        !Number.isFinite(salePrice) ||
-        salePrice < 0
-      ) {
-        throw new Error("Prix de revente invalide.");
-      }
-
-      if (
-        !Number.isInteger(quantity) ||
-        quantity < 0
-      ) {
-        throw new Error("La quantité doit être un nombre entier positif.");
-      }
+      saveButton.textContent =
+        "Enregistrement...";
 
 
-      /* =========================
-         IMAGE
-      ========================= */
+      try {
 
-      let imageUrl = null;
-
-      const oldProduct =
-        editingProductId
-          ? products.find(
-              item =>
-                String(item.id) ===
-                String(editingProductId)
+        const name =
+          document
+            .getElementById(
+              "productName"
             )
-          : null;
-
-      if (oldProduct?.image_url) {
-        imageUrl = oldProduct.image_url;
-      }
+            .value
+            .trim();
 
 
-      if (imageFile) {
+        const description =
+          document
+            .getElementById(
+              "productDescription"
+            )
+            .value
+            .trim();
 
-        if (!imageFile.type.startsWith("image/")) {
-          throw new Error("Le fichier sélectionné n'est pas une image.");
+
+        const purchasePrice =
+          Number(
+            document
+              .getElementById(
+                "purchasePrice"
+              )
+              .value
+          );
+
+
+        const salePrice =
+          Number(
+            document
+              .getElementById(
+                "salePrice"
+              )
+              .value
+          );
+
+
+        const quantity =
+          Number(
+            document
+              .getElementById(
+                "productQuantity"
+              )
+              .value
+          );
+
+
+        const imageFile =
+          document
+            .getElementById(
+              "productImage"
+            )
+            .files[0];
+
+
+        if (!name) {
+
+          throw new Error(
+            "Le nom de l'article est obligatoire."
+          );
+
         }
 
-        if (imageFile.size > 8 * 1024 * 1024) {
-          throw new Error("La photo ne doit pas dépasser 8 Mo.");
+
+        if (
+          !Number.isFinite(
+            purchasePrice
+          ) ||
+          purchasePrice < 0
+        ) {
+
+          throw new Error(
+            "Prix d'achat invalide."
+          );
+
         }
 
-        const extension =
-          getFileExtension(imageFile.name);
 
-        const safeExtension =
-          extension || "jpg";
+        if (
+          !Number.isFinite(
+            salePrice
+          ) ||
+          salePrice < 0
+        ) {
 
-        const filePath =
-          `${crypto.randomUUID()}.${safeExtension}`;
+          throw new Error(
+            "Prix de revente invalide."
+          );
 
-        const {
-          error: uploadError
-        } =
-          await supabaseClient
-            .storage
-            .from(STORAGE_BUCKET)
-            .upload(
-              filePath,
-              imageFile,
-              {
-                cacheControl: "3600",
-                upsert: false
-              }
+        }
+
+
+        if (
+          !Number.isInteger(
+            quantity
+          ) ||
+          quantity < 0
+        ) {
+
+          throw new Error(
+            "La quantité doit être un nombre entier positif."
+          );
+
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        let imageUrl = null;
+
+
+        const oldProduct =
+          editingProductId
+            ? products.find(
+                item =>
+                  String(item.id) ===
+                  String(
+                    editingProductId
+                  )
+              )
+            : null;
+
+
+        if (
+          oldProduct?.image_url
+        ) {
+
+          imageUrl =
+            oldProduct.image_url;
+
+        }
+
+
+        if (imageFile) {
+
+          if (
+            !imageFile.type.startsWith(
+              "image/"
+            )
+          ) {
+
+            throw new Error(
+              "Le fichier sélectionné n'est pas une image."
             );
 
-        if (uploadError) {
-          console.error(uploadError);
-          throw new Error(
-            "Impossible d'envoyer la photo."
-          );
-        }
-
-        const {
-          data: publicUrlData
-        } =
-          supabaseClient
-            .storage
-            .from(STORAGE_BUCKET)
-            .getPublicUrl(filePath);
-
-        imageUrl =
-          publicUrlData.publicUrl;
-
-      }
+          }
 
 
-      /* =========================
-         DONNEES
-      ========================= */
+          if (
+            imageFile.size >
+            8 * 1024 * 1024
+          ) {
 
-      const productData = {
-
-        name,
-
-        description,
-
-        purchase_price:
-          purchasePrice,
-
-        sale_price:
-          salePrice,
-
-        quantity,
-
-        image_url:
-          imageUrl
-
-      };
-
-
-      /* =========================
-         CREATION
-      ========================= */
-
-      if (!editingProductId) {
-
-        const {
-          error
-        } =
-          await supabaseClient
-            .from("products")
-            .insert(productData);
-
-        if (error) {
-
-          console.error(error);
-
-          throw new Error(
-            "Impossible d'ajouter l'article."
-          );
-
-        }
-
-        toast(
-          "Article ajouté avec succès.",
-          "success"
-        );
-
-      }
-
-      /* =========================
-         MODIFICATION
-      ========================= */
-
-      else {
-
-        const {
-          error
-        } =
-          await supabaseClient
-            .from("products")
-            .update(productData)
-            .eq(
-              "id",
-              editingProductId
+            throw new Error(
+              "La photo ne doit pas dépasser 8 Mo."
             );
 
-        if (error) {
+          }
 
-          console.error(error);
 
-          throw new Error(
-            "Impossible de modifier l'article."
+          const extension =
+            getFileExtension(
+              imageFile.name
+            );
+
+
+          const safeExtension =
+            extension ||
+            "jpg";
+
+
+          const filePath =
+            `${crypto.randomUUID()}.${safeExtension}`;
+
+
+          const {
+            error: uploadError
+          } =
+            await supabaseClient
+              .storage
+              .from(
+                STORAGE_BUCKET
+              )
+              .upload(
+                filePath,
+                imageFile,
+                {
+                  cacheControl:
+                    "3600",
+                  upsert:
+                    false
+                }
+              );
+
+
+          if (
+            uploadError
+          ) {
+
+            console.error(
+              uploadError
+            );
+
+            throw new Error(
+              "Impossible d'envoyer la photo."
+            );
+
+          }
+
+
+          const {
+            data:
+              publicUrlData
+          } =
+            supabaseClient
+              .storage
+              .from(
+                STORAGE_BUCKET
+              )
+              .getPublicUrl(
+                filePath
+              );
+
+
+          imageUrl =
+            publicUrlData.publicUrl;
+
+        }
+
+
+        /* =========================
+           DONNÉES
+        ========================= */
+
+        const productData = {
+
+          name,
+
+          description,
+
+          purchase_price:
+            purchasePrice,
+
+          sale_price:
+            salePrice,
+
+          quantity,
+
+          image_url:
+            imageUrl
+
+        };
+
+
+        /* =========================
+           CRÉATION
+        ========================= */
+
+        if (
+          !editingProductId
+        ) {
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from(
+                "products"
+              )
+              .insert(
+                productData
+              );
+
+
+          if (error) {
+
+            console.error(
+              error
+            );
+
+            throw new Error(
+              "Impossible d'ajouter l'article."
+            );
+
+          }
+
+
+          toast(
+            "Article ajouté avec succès.",
+            "success"
           );
 
         }
 
-        toast(
-          "Article modifié avec succès.",
-          "success"
+
+        /* =========================
+           MODIFICATION
+        ========================= */
+
+        else {
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from(
+                "products"
+              )
+              .update(
+                productData
+              )
+              .eq(
+                "id",
+                editingProductId
+              );
+
+
+          if (error) {
+
+            console.error(
+              error
+            );
+
+            throw new Error(
+              "Impossible de modifier l'article."
+            );
+
+          }
+
+
+          toast(
+            "Article modifié avec succès.",
+            "success"
+          );
+
+        }
+
+
+        closeProductModal();
+
+        await loadProducts();
+
+
+      } catch (error) {
+
+        console.error(
+          error
         );
 
+
+        toast(
+          error.message ||
+          "Une erreur est survenue.",
+          "error"
+        );
+
+
+      } finally {
+
+        saveButton.disabled =
+          false;
+
+        saveButton.textContent =
+          "Enregistrer";
+
       }
-
-      closeProductModal();
-
-      await loadProducts();
-
-    } catch (error) {
-
-      console.error(error);
-
-      toast(
-        error.message ||
-        "Une erreur est survenue.",
-        "error"
-      );
-
-    } finally {
-
-      saveButton.disabled = false;
-      saveButton.textContent = "Enregistrer";
 
     }
-
-  });
+  );
 
 
 /* ============================================================
@@ -2340,19 +3070,25 @@ async function deleteProduct(id) {
     return;
   }
 
+
   const product =
     products.find(
-      item => String(item.id) === String(id)
+      item =>
+        String(item.id) ===
+        String(id)
     );
+
 
   if (!product) {
     return;
   }
 
+
   const confirmation =
     confirm(
       `Supprimer "${product.name}" ?\n\nCette action supprimera l'article du catalogue.`
     );
+
 
   if (!confirmation) {
     return;
@@ -2365,44 +3101,58 @@ async function deleteProduct(id) {
     await supabaseClient
       .from("products")
       .delete()
-      .eq("id", id);
+      .eq(
+        "id",
+        id
+      );
 
 
   if (error) {
 
-    console.error(error);
+    console.error(
+      error
+    );
+
 
     toast(
       "Impossible de supprimer l'article.",
       "error"
     );
 
+
     return;
+
   }
 
 
-  /*
-    Suppression de l'image du Storage.
-    L'article est déjà supprimé de la base.
-  */
-
-  if (product.image_url) {
+  if (
+    product.image_url
+  ) {
 
     try {
 
       const path =
-        extractStoragePath(product.image_url);
+        extractStoragePath(
+          product.image_url
+        );
+
 
       if (path) {
 
         await supabaseClient
           .storage
-          .from(STORAGE_BUCKET)
-          .remove([path]);
+          .from(
+            STORAGE_BUCKET
+          )
+          .remove([
+            path
+          ]);
 
       }
 
-    } catch (imageError) {
+    } catch (
+      imageError
+    ) {
 
       console.warn(
         "Image non supprimée du Storage:",
@@ -2419,13 +3169,14 @@ async function deleteProduct(id) {
     "success"
   );
 
+
   await loadProducts();
 
 }
 
 
 /* ============================================================
-   EXTRAIRE LE CHEMIN STORAGE
+   CHEMIN STORAGE
 ============================================================ */
 
 function extractStoragePath(url) {
@@ -2435,18 +3186,29 @@ function extractStoragePath(url) {
     const marker =
       `/storage/v1/object/public/${STORAGE_BUCKET}/`;
 
-    const index =
-      url.indexOf(marker);
 
-    if (index === -1) {
+    const index =
+      url.indexOf(
+        marker
+      );
+
+
+    if (
+      index === -1
+    ) {
+
       return null;
+
     }
+
 
     return decodeURIComponent(
       url.substring(
-        index + marker.length
+        index +
+        marker.length
       )
     );
+
 
   } catch {
 
@@ -2464,7 +3226,10 @@ function extractStoragePath(url) {
 function setupImagePreview() {
 
   const input =
-    document.getElementById("productImage");
+    document.getElementById(
+      "productImage"
+    );
+
 
   input.addEventListener(
     "change",
@@ -2473,21 +3238,33 @@ function setupImagePreview() {
       const file =
         input.files[0];
 
+
       const container =
-        document.getElementById("previewContainer");
+        document.getElementById(
+          "previewContainer"
+        );
+
 
       const preview =
-        document.getElementById("imagePreview");
+        document.getElementById(
+          "imagePreview"
+        );
+
 
       if (!file) {
 
-        container.classList.add("hidden");
+        container
+          .classList
+          .add("hidden");
+
         return;
 
       }
 
+
       const reader =
         new FileReader();
+
 
       reader.onload =
         event => {
@@ -2495,11 +3272,19 @@ function setupImagePreview() {
           preview.src =
             event.target.result;
 
-          container.classList.remove("hidden");
+
+          container
+            .classList
+            .remove(
+              "hidden"
+            );
 
         };
 
-      reader.readAsDataURL(file);
+
+      reader.readAsDataURL(
+        file
+      );
 
     }
   );
@@ -2508,42 +3293,60 @@ function setupImagePreview() {
 
 
 /* ============================================================
-   FORMAT EURO
+   EURO
 ============================================================ */
 
-function formatEuro(value) {
+function formatEuro(
+  value
+) {
 
   return new Intl.NumberFormat(
     "fr-FR",
     {
-      style: "currency",
-      currency: "EUR"
+      style:
+        "currency",
+      currency:
+        "EUR"
     }
   ).format(
-    Number(value || 0)
+    Number(
+      value || 0
+    )
   );
 
 }
 
 
 /* ============================================================
-   EXTENSION FICHIER
+   EXTENSION
 ============================================================ */
 
-function getFileExtension(filename) {
+function getFileExtension(
+  filename
+) {
 
   const parts =
-    String(filename)
-      .split(".");
+    String(
+      filename
+    ).split(".");
 
-  if (parts.length < 2) {
+
+  if (
+    parts.length < 2
+  ) {
+
     return "";
+
   }
+
 
   return parts
     .pop()
     .toLowerCase()
-    .replace(/[^a-z0-9]/g, "");
+    .replace(
+      /[^a-z0-9]/g,
+      ""
+    );
 
 }
 
@@ -2552,21 +3355,44 @@ function getFileExtension(filename) {
    ESCAPE HTML
 ============================================================ */
 
-function escapeHTML(value) {
+function escapeHTML(
+  value
+) {
 
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  return String(
+    value ?? ""
+  )
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
-function escapeAttribute(value) {
+function escapeAttribute(
+  value
+) {
 
-  return escapeHTML(value);
+  return escapeHTML(
+    value
+  );
 
 }
 
@@ -2575,101 +3401,106 @@ function escapeAttribute(value) {
    TOAST
 ============================================================ */
 
-function toast(message, type = "success") {
+function toast(
+  message,
+  type = "success"
+) {
 
   const container =
-    document.getElementById("toastContainer");
+    document.getElementById(
+      "toastContainer"
+    );
+
 
   const element =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   element.className =
     `toast ${type}`;
 
+
   element.textContent =
     message;
 
-  container.appendChild(element);
 
-  setTimeout(() => {
+  container.appendChild(
+    element
+  );
 
-    element.remove();
 
-  }, 4000);
+  setTimeout(
+    () => {
+      element.remove();
+    },
+    4000
+  );
 
 }
 
 
 /* ============================================================
-   FERMETURE MODAL EN CLIQUANT AUTOUR
+   FERMETURE MODAL
 ============================================================ */
 
 document
-  .getElementById("productModal")
-  .addEventListener("click", event => {
+  .getElementById(
+    "productModal"
+  )
+  .addEventListener(
+    "click",
+    event => {
 
-    if (
-      event.target.id ===
-      "productModal"
-    ) {
+      if (
+        event.target.id ===
+        "productModal"
+      ) {
 
-      closeProductModal();
+        closeProductModal();
+
+      }
 
     }
-
-  });
+  );
 
 
 /* ============================================================
    ACTUALISATION AUTOMATIQUE
 ============================================================ */
 
-/*
-  Toutes les 30 secondes, FLIPSCAN vérifie
-  s'il y a de nouveaux produits/modifications.
+setInterval(
+  async () => {
 
-  Cela permet de garder les appareils synchronisés
-  sans avoir besoin de configurer Supabase Realtime.
-*/
+    if (
+      currentUser &&
+      !document
+        .getElementById(
+          "productModal"
+        )
+        .classList
+        .contains(
+          "hidden"
+        )
+    ) {
 
-setInterval(async () => {
+      return;
 
-  if (
-    currentUser &&
-    !document
-      .getElementById("productModal")
-      .classList.contains("hidden")
-  ) {
-    return;
-  }
-
-  if (currentUser) {
-    await loadProducts();
-  }
-
-}, 30000);
+    }
 
 
-/* ============================================================
-   SECURITE : CTRL+S / F12 n'apporte aucun droit supplémentaire
-============================================================ */
+    if (
+      currentUser
+    ) {
 
-/*
-  IMPORTANT :
+      await loadProducts();
 
-  L'interface cache les boutons administrateur
-  aux utilisateurs classiques.
+    }
 
-  Mais la vraie sécurité ne repose PAS sur cela.
-
-  Les politiques RLS Supabase que tu as déjà créées
-  empêchent réellement un utilisateur classique
-  de faire INSERT / UPDATE / DELETE.
-
-  Même si quelqu'un modifie le JavaScript dans son navigateur,
-  Supabase refusera les opérations administrateur.
-*/
-
+  },
+  30000
+);
 
 </script>
 
